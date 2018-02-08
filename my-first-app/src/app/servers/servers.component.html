@@ -1,5 +1,12 @@
 <!-- property databinding - colocar a propriedade html entre conchetes e o seu valor é uma variavel do servico -->
-<button class="btn btn-primary" [disabled]="!allowNewServer">New Server</button>
+<button 
+    class="btn btn-primary" 
+    [disabled]="!allowNewServer"
+    (click)="onServerCreate()">
+    New Server
+</button>
+<p>{{ serverCreationStatus }}</p>
+
 <p>{{ allowNewServer }}</p> <!-- string interpolatin -->
 <p [innerText]="allowNewServer"></p> <!-- property databinding -->
 <app-server></app-server>
