@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="form-group">
+    <label for="nameId">Name:</label>
+    <input type="text" class="form-control" id="nameId" [(ngModel)]="userName">
+    <small class="form-text text-muted">{{ userName }}</small>
+  </div>
+  <hr>
+  <button class="btn btn-primary" (click)="resetUserName()" [disabled]="isBtnDisabled()">Reset</button>
+</div>
