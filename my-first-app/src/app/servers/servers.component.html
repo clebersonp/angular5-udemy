@@ -1,3 +1,15 @@
+<label>Name:</label>
+<input 
+    type="text" 
+    class="form-control"
+    (input)="onUpdateServerName($event)"
+>
+<!-- passando dados para o servico via event data bind -->
+<!-- event bind -> (nomeEventoDoAtributo)="metodoOuFuncao()"; $event passado via parametro -->
+<p>{{ serverName }}</p>
+
+<hr>
+
 <!-- property databinding - colocar a propriedade html entre conchetes e o seu valor é uma variavel do servico -->
 <!-- propriedade de html usa-se [] -> chama-se property bind; eventos de componentes html usa-se () -> chama-se event bind -->
 <button 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-servers', // usado como uma tag no html
@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   serverCreationStatus = 'Server is not working in this moment';
   allowNewServer = false;
+  serverName = '';
 
   constructor() {
 
@@ -24,6 +25,11 @@ export class ServersComponent implements OnInit {
 
   onServerCreate() {
     this.serverCreationStatus = 'Server is running right now!';
+  }
+
+  onUpdateServerName(event: Event) {
+    // console.log(event);
+    this.serverName = (<HTMLInputElement>event.target).value;
   }
 
 }
