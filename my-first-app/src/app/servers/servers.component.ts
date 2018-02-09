@@ -10,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ServersComponent implements OnInit {
   serverCreationStatus = 'Server is not working in this moment';
   allowNewServer = false;
-  serverName = '';
+  serverName = 'preText';
 
   constructor() {
 

@@ -1,11 +1,18 @@
 <label>Name:</label>
+<!-- passando dados para o servico via event data bind -->
+<!-- event bind -> (nomeEventoDoAtributo)="metodoOuFuncao()"; $event passado via parametro -->
 <input 
     type="text" 
     class="form-control"
     (input)="onUpdateServerName($event)"
 >
-<!-- passando dados para o servico via event data bind -->
-<!-- event bind -> (nomeEventoDoAtributo)="metodoOuFuncao()"; $event passado via parametro -->
+
+<!-- usando two-way-databind -> usa-se a diretiva [(ngModel)]="nomeDaVariavel" -> para funcionar tem que importar o FormsModule no array do AppModule-->
+<input 
+    type="text" 
+    class="form-control"
+    [(ngModel)]="serverName"
+>
 <p>{{ serverName }}</p>
 
 <hr>
