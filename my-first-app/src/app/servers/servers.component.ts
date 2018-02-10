@@ -11,6 +11,7 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'Server is not working in this moment';
   allowNewServer = false;
   serverName = 'preText';
+  serverCreated = false;
 
   constructor() {
 
@@ -24,6 +25,7 @@ export class ServersComponent implements OnInit {
   }
 
   onServerCreate() {
+    this.serverCreated = true;
     this.serverCreationStatus = 'Server is running right now! ' + this.serverName;
   }
 

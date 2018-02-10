@@ -25,7 +25,18 @@
     (click)="onServerCreate()">
     New Server
 </button>
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+
+<!-- Diretivas: sao para interagirem com o DOM, adicionar, remover ou alterar o DOM em runtime -->
+<!-- Diretiva *ngIf -> precisa do * pois e uma diretiva de estrutura e add ou remove no DOM em runtime, ou seja altera a estrutura do DOM -->
+<p *ngIf="serverCreated; else nomeDoTemplate" >{{ serverCreationStatus }}</p>
+
+<!-- forma de criar um condicional else, primeiro criamos um template com ng-template e depois demos um alias com #, e referenciamos esse alias no else do *ngIf -->
+<ng-template #nomeDoTemplate>
+    <p> Server was not created yet! </p>
+</ng-template>
+<!-- outra forma mais tranquila para fazer o else, e so negar o condicional -->
+<!-- <p *ngIf="!serverCreated" > Server was not created with negation ! mark.</p> -->
 
 <p>{{ allowNewServer }}</p> <!-- string interpolatin -->
 <p [innerText]="allowNewServer"></p> <!-- property databinding -->
