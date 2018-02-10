@@ -40,5 +40,6 @@
 
 <p>{{ allowNewServer }}</p> <!-- string interpolatin -->
 <p [innerText]="allowNewServer"></p> <!-- property databinding -->
-<app-server></app-server>
-<app-server></app-server>
+
+<!-- diretiva de estrutura *ngFor pois altera a estrutura do DOM -->
+<app-server *ngFor="let s of servers"></app-server>

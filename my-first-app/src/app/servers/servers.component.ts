@@ -12,6 +12,7 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverName = 'preText';
   serverCreated = false;
+  servers = ['Server Teste1', 'Server Test2'];
 
   constructor() {
 
@@ -27,6 +28,9 @@ export class ServersComponent implements OnInit {
   onServerCreate() {
     this.serverCreated = true;
     this.serverCreationStatus = 'Server is running right now! ' + this.serverName;
+
+    // adicionar os nomes de servidores digitados na tela no array
+    this.servers.push(this.serverName);
   }
 
   onUpdateServerName(event: Event) {
