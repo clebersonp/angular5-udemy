@@ -1,1 +1,3 @@
-<p>{{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p>
+<!-- diferente da diretiva de estrutura o *ngIf, a diretiva ngStyle ela so altera o que ja existe no DOM, por isso e considerado diretiva de atributo -->
+<!-- [] nao faz parte da diretiva ngStyle, so queremos dizer ao angula que sera feito um property bind do atributo style -->
+<p [ngStyle]="{backgroundColor: getStatusColor()}">{{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p>
