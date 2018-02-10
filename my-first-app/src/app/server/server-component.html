@@ -1,3 +1,13 @@
 <!-- diferente da diretiva de estrutura o *ngIf, a diretiva ngStyle ela so altera o que ja existe no DOM, por isso e considerado diretiva de atributo -->
-<!-- [] nao faz parte da diretiva ngStyle, so queremos dizer ao angula que sera feito um property bind do atributo style -->
-<p [ngStyle]="{backgroundColor: getStatusColor()}">{{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p>
+<!-- [] nao faz parte da diretiva ngStyle, so queremos dizer ao angula que sera feito um property bind do atributo style.
+utiliza pairs key:value, onde a key e o nome do style attribute e o value e o seu valor, que pode ser obtido atraves de uma funcao do servico
+-->
+
+<!-- a diretiva ngclass e igual ao conceito da diretiva ngStyle, porem a gente usa uma class css para alterar o componente html,
+utiliza pairs key:value, onde a key e a class css, e o value e a condicao true ou false para aplicar o css
+-->
+<p 
+    [ngStyle]="{backgroundColor: getStatusColor()}"
+    [ngClass]="{online: getServerStatus() === 'online'}">
+    {{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}
+</p>
