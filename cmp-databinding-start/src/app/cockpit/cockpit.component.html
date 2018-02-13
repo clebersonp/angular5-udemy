@@ -11,7 +11,15 @@
     -->
     <input type="text" class="form-control" #serverName>
     <label>Server Content</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerContent">
+    
+    <!-- two-way-binding -->
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+
+    <!--
+      usando Local Reference com o decorator @ViewChild() no typescript service,
+      tbm conseguimos alterar o DOM mas nao e recomendado
+    -->
+    <input type="text" class="form-control" #serverContentInput>
     <br>
     <button
       class="btn btn-primary"

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -13,7 +13,12 @@ export class CockpitComponent implements OnInit {
   @Output('eventoDeServerBlueprintCriado') serverBlueprintCreated = new EventEmitter<{name: string, content: string}>();
   // comentando esse atributo pois vamos usar Local Reference, passando o html para aqui
   // newServerName = '';
-  newServerContent = '';
+
+  // comentando esse atributo pois vamos usar Local Reference com o decorator @ViewChild() do type ElementRef ambos do angular/core
+  // newServerContent = '';
+
+  // o parametro e o mesmo nome do local reference no template html
+  @ViewChild('serverContentInput') serverContentInputDoTemplate: ElementRef;
 
   constructor() { }
 
@@ -23,13 +28,17 @@ export class CockpitComponent implements OnInit {
   // emitindo um evento de saida, output desse componente estando dentro de outro component
   // passando o Local reference vindo do template HTML via parametro para recuperar o valor do component html Input
   onAddServer(serverName: HTMLInputElement) {
-    this.serverContentCreated.emit({name: serverName.value, content: this.newServerContent});
+    // this.serverContentCreated.emit({name: this.newServerName, content: this.newServerContent});
+    // this.serverContentCreated.emit({name: serverName.value, content: this.newServerContent});
+    this.serverContentCreated.emit({name: serverName.value, content: this.serverContentInputDoTemplate.nativeElement.value});
   }
 
   // emitindo um evento de saida, output desse componente estando dentro de outro component
   // passando o Local reference vindo do template HTML via parametro para recuperar o valor do component html Input
   onAddBlueprint(serverName: HTMLInputElement) {
-    this.serverBlueprintCreated.emit({name: serverName.value, content: this.newServerContent});
+    // this.serverContentCreated.emit({name: this.newServerName, content: this.newServerContent});
+    // this.serverContentCreated.emit({name: serverName.value, content: this.newServerContent});
+    this.serverBlueprintCreated.emit({name: serverName.value, content: this.serverContentInputDoTemplate.nativeElement.value});
   }
 
 }
