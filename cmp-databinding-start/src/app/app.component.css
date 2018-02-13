@@ -2,6 +2,11 @@
   margin-top: 30px;
 }
 
+/*
+Angular encapsula os styles em seu proprios componentes em tempo de execucao,
+esse e um comportamento padrao que o angular foça para ocorrer nas views encapsulation. 
+Entao se quisermos o mesmo style em outro componentes devemos fornece-lo
+*/
 p {
   color: blue;
 }
