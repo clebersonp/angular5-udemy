@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
+  // adicionando alias aos eventEmitter
+  // tslint:disable-next-line:no-output-rename
+  @Output('eventoDeServerNameCriado') serverContentCreated = new EventEmitter<{name: string, content: string}>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('eventoDeServerBlueprintCriado') serverBlueprintCreated = new EventEmitter<{name: string, content: string}>();
   newServerName = '';
   newServerContent = '';
 
@@ -14,20 +19,14 @@ export class CockpitComponent implements OnInit {
   ngOnInit() {
   }
 
+  // emitindo um evento de saida, output desse componente estando dentro de outro component
   onAddServer() {
-    // this.serverElements.push({
-    //   type: 'server',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+    this.serverContentCreated.emit({name: this.newServerName, content: this.newServerContent});
   }
 
+  // emitindo um evento de saida, output desse componente estando dentro de outro component
   onAddBlueprint() {
-    // this.serverElements.push({
-    //   type: 'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+    this.serverBlueprintCreated.emit({name: this.newServerName, content: this.newServerContent});
   }
 
 }

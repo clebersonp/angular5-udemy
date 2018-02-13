@@ -12,7 +12,9 @@ export class ServerElementComponent implements OnInit {
   pois o modula app.component esta tentando passar um valor para esse atributo
   */
 
-  @Input() element: {type: string, name: string, content: string};
+ // posso usar alias para um Decorator @Input, e quando precisar me referenciar a este elemento terei que usar o alias
+  // tslint:disable-next-line:no-input-rename
+  @Input('srvElement') element: {type: string, name: string, content: string};
 
   constructor() { }
 
