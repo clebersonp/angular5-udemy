@@ -1,9 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{ element.name }}</div>
   <div class="panel-body">
-    <p>
-      <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-      <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-    </p>
+    <!-- 
+      para usar template html entre abre de fecha component (<app-server-element>entra aqui</app-server-element>),
+      devemos autorizar o angular a nos deixar inserir por meio da diretiva <ng-content></ng-content> -->
+      <ng-content></ng-content>
   </div>
 </div>
