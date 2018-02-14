@@ -1,4 +1,18 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import {
+        Component,
+        OnInit,
+        Input,
+        ViewEncapsulation,
+        OnChanges,
+        SimpleChanges,
+        DoCheck,
+        AfterContentInit,
+        AfterContentChecked,
+        AfterViewInit,
+        AfterViewChecked,
+        OnDestroy
+
+      } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -8,7 +22,15 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
   // encapulation default is emulated. Exitem None e Native.
   // None permite usar em toda aplicacao o css, o Native nao sao todos os browsers que suportam
 })
-export class ServerElementComponent implements OnInit {
+export class ServerElementComponent implements
+  OnInit,
+  OnChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy {
 
   /*
    o decorator @Input() permite expor essa propriedade para outro modulos,
@@ -19,9 +41,43 @@ export class ServerElementComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('srvElement') element: {type: string, name: string, content: string};
 
-  constructor() { }
+  // tslint:disable-next-line:no-input-rename
+  @Input('onlyServerName') name: string;
 
-  ngOnInit() {
+  constructor() {
+    console.log('constructor called!');
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges called!');
+    console.log(changes);
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit called!');
+  }
+
+  ngDoCheck() {
+    console.log('ngDoCheck called!');
+  }
+
+  ngAfterContentInit() {
+    console.log('ngAfterContentInt called!');
+  }
+
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked!');
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInt called!');
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked!');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy called!');
+  }
 }
