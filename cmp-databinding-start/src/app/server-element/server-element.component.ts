@@ -12,7 +12,8 @@ import {
         AfterViewChecked,
         OnDestroy,
         ElementRef,
-        ViewChild
+        ViewChild,
+        ContentChild
 
       } from '@angular/core';
 
@@ -48,6 +49,8 @@ export class ServerElementComponent implements
 
   @ViewChild('heading') header: ElementRef;
 
+  @ContentChild('contentParagraph') paragraph: ElementRef;
+
   constructor() {
     console.log('constructor called!');
   }
@@ -63,6 +66,7 @@ export class ServerElementComponent implements
     // nao acontece nada aqui pois o elemento html nao foi renderizado ainda,
     // so vai inicializar no afterViewInit
     console.log('View Content: ' + this.header.nativeElement.textContent);
+    console.log('Text Content: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -80,6 +84,7 @@ export class ServerElementComponent implements
   ngAfterViewInit() {
     console.log('ngAfterViewInt called!');
     console.log('View Content: ' + this.header.nativeElement.textContent);
+    console.log('Text Content: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngAfterViewChecked() {

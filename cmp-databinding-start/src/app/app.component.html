@@ -12,7 +12,8 @@
           devemos usar a diretiva ng-content la no template html onde o componente foi criado
         -->
 
-        <p>
+        <!-- usando local reference do tipo @ContentChild, pois esse template do app-server-element esta dentro do componente app.component -->
+        <p #contentParagraph>
           <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
           <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
         </p>
